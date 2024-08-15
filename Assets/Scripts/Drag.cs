@@ -38,6 +38,7 @@ public class Drag : MonoBehaviour
         float newX = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
         float newY = Mathf.RoundToInt(transform.position.y / gridSize) * gridSize;
         transform.position = new Vector3(newX, newY, transform.position.z);
+        //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 
     void FixedUpdate()

@@ -40,10 +40,7 @@ public class LoadMainMenu : MonoBehaviour
         timerSlider.value = timer;
     }
     
-    private void ResetSlider(float time)
-    {
-        timerSlider.maxValue = time;
-    }
+    
     private void UpdateSlider(float time)
     {
         timerSlider.value = time;

@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     void SetMirrors()
     {
+        targetTime = 0;
         float x;
         float y;
 
@@ -159,11 +160,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        
         if (startTimer)
         {
-            targetTime -= Time.deltaTime;
+            targetTime += Time.deltaTime;
             TimerTxt.text = ((int)targetTime).ToString();
-            if (targetTime <=0)
+            if (targetTime >=100)
             {
                 GameCompPanel.SetActive(true);
                 GameObject[] Lasers = GameObject.FindGameObjectsWithTag("Laser");

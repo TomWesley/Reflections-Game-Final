@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
         Quaternion rotation = this.gameObject.transform.rotation;
         Vector3 rotatedDirection = rotation * direction;
 
-        ball.GetComponent<Throwable>().throwVector = rotatedDirection * 5000;
+        ball.GetComponent<Throwable>().throwVector = rotatedDirection * 15000;
         ball.GetComponent<Throwable>().Throw();
         LineDrawer.GetComponent<LineRenderer>().startWidth = 0.04f;
         LineDrawer.GetComponent<LineRenderer>().endWidth = 0.04f;
