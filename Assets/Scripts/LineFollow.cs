@@ -26,8 +26,8 @@ public class LineFollow : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
 
         // Initialize the LineRenderer
-        lineRenderer.startWidth = .1f;
-        lineRenderer.endWidth = .1f;
+        // lineRenderer.startWidth = .1f;
+        // lineRenderer.endWidth = .1f;
         lineRenderer.positionCount = 1;
         lineRenderer.SetPosition(0, Ball.position);
     }
@@ -38,7 +38,12 @@ public class LineFollow : MonoBehaviour
         if (lineRenderer.GetPosition(pointCount) != Ball.position)
         {
             // Increase the number of points in the LineRenderer
+            // if(pointCount<10){
             pointCount++;
+            // }
+            // else{
+            //     pointCount = 10;
+            // }
             lineRenderer.positionCount = pointCount + 1;
 
             // Set the new position of the line
