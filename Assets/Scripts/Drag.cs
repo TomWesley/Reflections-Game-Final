@@ -53,7 +53,7 @@ public class Drag : MonoBehaviour
     private Vector3 GetMouseWorldPos()
     {
         Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = zCoord; // Set z to the object's z position to keep it on the same plane
+        mousePoint.z = 0; // Set z to the object's z position to keep it on the same plane
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 }

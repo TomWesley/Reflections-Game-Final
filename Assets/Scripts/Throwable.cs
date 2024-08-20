@@ -32,7 +32,7 @@ public class Throwable : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //doing vector2 math to ignore the z values in our distance.
         Vector2 distance = mousePos - this.transform.position;
-        //dont normalize the ditance if you want the throw strength to vary
+        //dont normalize the distance if you want the throw strength to vary
         throwVector = -distance.normalized * 100;
     }
     void SetArrow()
