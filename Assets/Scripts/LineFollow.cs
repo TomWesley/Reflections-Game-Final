@@ -4,51 +4,47 @@ using UnityEngine;
 
 public class LineFollow : MonoBehaviour
 {
-    //public Vector3[] parent;
-    //LineRenderer lr;
-    //private void Start()
-    //{
-    //    lr = this.gameObject.GetComponent<LineRenderer>();
-    //}
-
-    //private void Update()
-    //{
-    //    lr.SetPositions(parent);
-    //}
-
-    public Transform Ball;
+    public Transform Ball; // Reference to the ball's transform
     private LineRenderer lineRenderer;
-    private int pointCount = 0; // How many points are there in the line?
+    private const int maxPoints = 800; // Maximum number of points to keep in the trail
+    private Vector3 lastPosition;
 
     void Start()
     {
         // Get the LineRenderer component
         lineRenderer = GetComponent<LineRenderer>();
-
-        // Initialize the LineRenderer
-        // lineRenderer.startWidth = .1f;
-        // lineRenderer.endWidth = .1f;
-        lineRenderer.positionCount = 1;
-        lineRenderer.SetPosition(0, Ball.position);
+        lineRenderer.positionCount = 0; // Initialize with zero points
+        lastPosition = Ball.position; // Initialize last position
     }
 
     void Update()
     {
-        // Check if the sprite has moved
-        if (lineRenderer.GetPosition(pointCount) != Ball.position)
+        // Check if the ball has moved
+        if (Vector3.Distance(Ball.position, lastPosition) > Mathf.Epsilon)
         {
-            // Increase the number of points in the LineRenderer
-            // if(pointCount<10){
-            pointCount++;
-            // }
-            // else{
-            //     pointCount = 10;
-            // }
-            lineRenderer.positionCount = pointCount + 1;
+            // Update last position
+            lastPosition = Ball.position;
 
-            // Set the new position of the line
-            lineRenderer.SetPosition(pointCount, Ball.position);
+            // Increase the number of points
+            int currentPointCount = lineRenderer.positionCount;
+            if (currentPointCount >= maxPoints)
+            {
+                // Shift points to remove the oldest one
+                Vector3[] positions = new Vector3[maxPoints];
+                lineRenderer.GetPositions(positions);
+                System.Array.Copy(positions, 1, positions, 0, maxPoints - 1);
+                positions[maxPoints - 1] = Ball.position;
+
+                // Set the new positions
+                lineRenderer.positionCount = maxPoints;
+                lineRenderer.SetPositions(positions);
+            }
+            else
+            {
+                // Add new point
+                lineRenderer.positionCount++;
+                lineRenderer.SetPosition(currentPointCount, Ball.position);
+            }
         }
     }
-
 }
