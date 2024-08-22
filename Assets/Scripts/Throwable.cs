@@ -54,7 +54,7 @@ public class Throwable : MonoBehaviour
     public void Throw()
     {
         //_rb.AddForce(throwVector);
-        _rb.velocity = throwVector *75* Time.deltaTime;
+        _rb.velocity = throwVector *100* Time.deltaTime;
         
     }
     private void OnCollisionEnter2D(Collision2D collision)

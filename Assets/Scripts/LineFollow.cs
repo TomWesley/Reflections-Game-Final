@@ -6,7 +6,7 @@ public class LineFollow : MonoBehaviour
 {
     public Transform Ball; // Reference to the ball's transform
     private LineRenderer lineRenderer;
-    private const int maxPoints = 800; // Maximum number of points to keep in the trail
+    private const int maxPoints = 650; // Maximum number of points to keep in the trail
     private Vector3 lastPosition;
 
     void Start()

@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         //Absorbers = GameObject.FindGameObjectsWithTag("Absorber");
 
         SetMirrors();
-        SetAbsorbers();
+        // SetAbsorbers();
 
 
 
@@ -84,6 +84,8 @@ public class GameManager : MonoBehaviour
         targetTime = 0;
         float x;
         float y;
+        float sizeX;
+        float sizeY;
 
         TotalMirrors = Random.Range(0, Mirrors.Length);
         int MirrorCount = 0;
@@ -91,6 +93,11 @@ public class GameManager : MonoBehaviour
         {
             x = Random.Range(3.63f, -3.63f);
             y = Random.Range(3.95f, -3.95f);
+            
+            sizeX = Random.Range(.1f, 1.25f);
+            sizeY = Random.Range(.1f, 1.25f);
+            Vector3 newScale = new Vector3(sizeX, sizeY, 0);
+            mirror.transform.localScale = newScale;
             mirror.transform.position = new Vector3(x, y, 0);
         }
 
