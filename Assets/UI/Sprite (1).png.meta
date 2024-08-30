@@ -3,7 +3,7 @@ guid: 826ee9c5c2f8a1949a6559adaeec868c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 13
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,12 +20,11 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMipmapLimit: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -64,7 +63,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -77,7 +75,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -90,7 +87,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -103,7 +99,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -116,7 +111,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -129,7 +123,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -142,7 +135,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1010,7 +1002,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite (1)_59
+      name: Rect
       rect:
         serializedVersion: 2
         x: 26
@@ -1136,7 +1128,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite (1)_65
+      name: Poly
       rect:
         serializedVersion: 2
         x: 26
@@ -1388,7 +1380,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite (1)_77
+      name: Tri
       rect:
         serializedVersion: 2
         x: 28
@@ -1430,7 +1422,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite (1)_79
+      name: Tri 2
       rect:
         serializedVersion: 2
         x: 22
@@ -1606,7 +1598,7 @@ TextureImporter:
         width: 117
         height: 121
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1629,6 +1621,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Poly: -1327557601
+      Rect: 1883485857
       Sprite (1)_0: -1976979318
       Sprite (1)_1: -143268941
       Sprite (1)_10: 868856210
@@ -1684,14 +1678,12 @@ TextureImporter:
       Sprite (1)_56: 1568127495
       Sprite (1)_57: -1271013535
       Sprite (1)_58: 1889545240
-      Sprite (1)_59: 1883485857
       Sprite (1)_6: 1487843255
       Sprite (1)_60: -1384463332
       Sprite (1)_61: 126389839
       Sprite (1)_62: 1214537325
       Sprite (1)_63: 1572057419
       Sprite (1)_64: -1245593396
-      Sprite (1)_65: -1327557601
       Sprite (1)_66: -1862165886
       Sprite (1)_67: -1407787529
       Sprite (1)_68: -609769701
@@ -1704,16 +1696,17 @@ TextureImporter:
       Sprite (1)_74: -1123154405
       Sprite (1)_75: 1421263155
       Sprite (1)_76: -244991057
-      Sprite (1)_77: 2071772291
       Sprite (1)_78: 699754572
-      Sprite (1)_79: 1643127915
       Sprite (1)_8: 1546886528
       Sprite (1)_80: 519526982
       Sprite (1)_81: -606618848
       Sprite (1)_82: -1939827824
       Sprite (1)_9: 1645559161
-  mipmapLimitGroupName: 
+      Tri: 2071772291
+      Tri 2: 1643127915
+  spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

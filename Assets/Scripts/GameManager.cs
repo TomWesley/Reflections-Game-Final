@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] Mirrors;
     public GameObject[] Absorbers;
     public Transform[] RandomPos;
+    public Sprite[] SimpleMirrorSprites;
 
 
 
@@ -32,6 +33,8 @@ public class GameManager : MonoBehaviour
     int TotalMA;
     int TotalMirrors;
     int TotalAbsorbers;
+    [HideInInspector] public bool isGameStart = false;
+
 
     private void Start()
     {
@@ -183,16 +186,6 @@ public class GameManager : MonoBehaviour
                 }
                 startTimer = false;
 
-                if (PlayerPrefs.GetInt("LevelToBePlayed") == 4)
-                {
-                    PlayerPrefs.SetInt("Level", 0);
-                    PlayerPrefs.SetInt("LevelToBePlayed", 0);
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
-                    PlayerPrefs.SetInt("LevelToBePlayed", PlayerPrefs.GetInt("LevelToBePlayed") + 1);
-                }
             }
             
         }
@@ -213,51 +206,32 @@ public class GameManager : MonoBehaviour
         foreach (GameObject mirror in Mirrors)
         {
             mirror.GetComponent<PolygonCollider2D>().isTrigger = false;
-
-            //mirror.AddComponent<MirrorCollider>();
+            mirror.GetComponent<Drag>().enabled = false;
         }
 
         foreach (GameObject absorber in Absorbers)
         {
-            //absorber.GetComponent<BoxCollider2D>().enabled = false;
             absorber.GetComponent<PolygonCollider2D>().isTrigger = true;
             absorber.AddComponent<Absorber>();
         }
 
-        MidCircleBoundary.GetComponent<PolygonCollider2D>().enabled = false;
-        MidCircleBoundary.GetComponent<SpriteRenderer>().enabled = false;
 
+        for (int i = 0; i < Mirrors.Length; i++)
+        {
+            Mirrors[i].GetComponent<SpriteRenderer>().sprite = SimpleMirrorSprites[i];
+        }
+
+
+        MidCircleBoundary.SetActive(false);
 
         startTimer = true;
+        isGameStart = true;
     }
 
     public void Restart()
     {
         SceneManager.LoadScene("Gameplay");
     }
-
-    public void TurnOnLevel()
-    {
-        Levels[PlayerPrefs.GetInt("LevelToBePlayed")].SetActive(true);
-        LevelText.text = (PlayerPrefs.GetInt("LevelToBePlayed") + 1).ToString();
-    }
-
-
-    public void LevelPassNextBtnClicked()
-    {
-        if (PlayerPrefs.GetInt("LevelToBePlayed") == 4)
-        {
-            PlayerPrefs.SetInt("Level", 0);
-            PlayerPrefs.SetInt("LevelToBePlayed", 0);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
-            PlayerPrefs.SetInt("LevelToBePlayed", PlayerPrefs.GetInt("LevelToBePlayed") + 1);
-        }
-        
-        Restart();
-    } //not using it
 
     public void Pause()
     {

@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
         Quaternion rotation = this.gameObject.transform.rotation;
         Vector3 rotatedDirection = rotation * direction;
         // Is it because the Z value here is still be considered??
-        ball.GetComponent<Throwable>().throwVector = rotatedDirection * 100;
+        ball.GetComponent<Throwable>().throwVector = rotatedDirection * 2;
         ball.GetComponent<Throwable>().Throw();
         LineDrawer.GetComponent<LineRenderer>().startWidth = 0.05f;
         LineDrawer.GetComponent<LineRenderer>().endWidth = 0.05f;

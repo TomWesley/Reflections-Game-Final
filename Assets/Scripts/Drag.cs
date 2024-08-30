@@ -20,11 +20,15 @@ public class Drag : MonoBehaviour
 
     void OnMouseDown()
     {
-        zCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        offset = gameObject.transform.position - GetMouseWorldPos();
-        isDragging = true;
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.isKinematic = false;
+        if (!GameManager.Instance.isGameStart)
+        {
+            zCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+            offset = gameObject.transform.position - GetMouseWorldPos();
+            isDragging = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.isKinematic = false;
+        }
+        
     }
 
     void OnMouseUp()
