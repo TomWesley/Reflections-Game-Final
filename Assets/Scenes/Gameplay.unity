@@ -1968,7 +1968,7 @@ GameObject:
   - component: {fileID: 329943555}
   - component: {fileID: 329943554}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3783,7 +3783,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.2, y: 5.2, z: 1}
+  m_LocalScale: {x: 5.4, y: 5.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 976253923}
@@ -5386,6 +5386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerTxt: {fileID: 462886297}
   LevelText: {fileID: 1173785966}
+  finalScore: {fileID: 329943554}
   GameCompPanel: {fileID: 1331667257}
   GamePausePanel: {fileID: 1032346321}
   Levels:

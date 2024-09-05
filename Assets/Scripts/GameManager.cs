@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    
     public Text TimerTxt;
     public Text LevelText;
+    public Text finalScore;
 
     public GameObject GameCompPanel;
     public GameObject GamePausePanel;
@@ -175,6 +177,7 @@ public class GameManager : MonoBehaviour
         {
             targetTime += Time.deltaTime;
             TimerTxt.text = ((int)targetTime).ToString();
+            finalScore.text = TimerTxt.text;
             if (targetTime >=100)
             {
                 GameCompPanel.SetActive(true);
