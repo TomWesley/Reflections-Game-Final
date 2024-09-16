@@ -7,7 +7,7 @@ public class Throwable : MonoBehaviour
     [HideInInspector] public Vector3 throwVector;
     [HideInInspector] public Rigidbody2D _rb;
     LineRenderer _lr;
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
     void Awake()
     {
         _rb = this.GetComponent<Rigidbody2D>();
