@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     int TotalAbsorbers;
     [HideInInspector] public bool isGameStart = false;
 
+ 
+    // int[] spvalues= new int[10];
+    int[] spvalues= new int[10];
 
     private void Start()
     {
@@ -54,31 +57,44 @@ public class GameManager : MonoBehaviour
 
 
         TotalMA = TotalMirrors + TotalAbsorbers;
-
+        for(int i = 0; i < 10; i++){
+            spvalues[i] = -10;
+        }
         SetSpawners();
 
     }
 
     void SetSpawners()
     {
-        int TotalSpawners = Random.Range(0, Spawners.Length);
+        // int TotalSpawners = Random.Range(0, Spawners.Length);
+        int TotalSpawners = 3;
 
-        if(TotalSpawners > TotalMA)
-        {
-            SetSpawners();
-            return;
-        }
+        // if(TotalSpawners > TotalMA)
+        // {
+        //     SetSpawners();
+        //     return;
+        // }
         
         int SpawnerCount = 0;
         for (int i = 0; i < Spawners.Length; i++)
         {
-            if (SpawnerCount <= TotalSpawners)
+            while (SpawnerCount < TotalSpawners)
             {
                 int num = Random.Range(0, Spawners.Length);
-                if (Spawners[num].activeInHierarchy == false)
+                int checker = 0;
+                foreach(int obj in spvalues){
+                    if(obj == num){
+                        checker = 1;
+                        print("HIT HERE");
+                         // Exit the loop once the value is found
+                    }
+                }
+                if (Spawners[num].activeInHierarchy == false && checker == 0)
                 {
                     Spawners[num].SetActive(true);
+                    spvalues[SpawnerCount] = num;
                     SpawnerCount++;
+                    
                 }
             }
         }
@@ -92,15 +108,15 @@ public class GameManager : MonoBehaviour
         float sizeX;
         float sizeY;
 
-        TotalMirrors = Random.Range(0, Mirrors.Length);
+        TotalMirrors = 7;
         int MirrorCount = 0;
         foreach (GameObject mirror in Mirrors)
         {
             x = Random.Range(3.63f, -3.63f);
             y = Random.Range(3.95f, -3.95f);
             
-            sizeX = Random.Range(.25f, 1.25f);
-            sizeY = Random.Range(.25f, 1.25f);
+            sizeX = Random.Range(.25f, .8f);
+            sizeY = Random.Range(.25f, .8f);
             Vector3 newScale = new Vector3(sizeX, sizeY, 0);
             mirror.transform.localScale = newScale;
             mirror.transform.position = new Vector3(x, y, 0);
@@ -137,7 +153,8 @@ public class GameManager : MonoBehaviour
         float y;
 
 
-        TotalAbsorbers = Random.Range(0, Absorbers.Length);
+        TotalAbsorbers = 0;
+    
         int AbsorberCount = 0;
         foreach (GameObject absorber in Absorbers)
         {
