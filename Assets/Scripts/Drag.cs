@@ -39,8 +39,10 @@ public class Drag : MonoBehaviour
 
         // Snap to grid if close enough
         float gridSize = .5f;
-        float newX = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
-        float newY = Mathf.RoundToInt(transform.position.y / gridSize) * gridSize;
+        float newX = transform.position.x;
+        float newY = transform.position.y; 
+        // float newX = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
+        // float newY = Mathf.RoundToInt(transform.position.y / gridSize) * gridSize;
         transform.position = new Vector3(newX, newY, transform.position.z);
         //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }

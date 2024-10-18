@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
 
 
     public GameObject MidCircleBoundary;
+    public GameObject MidCircleBoundaryTwo;
+    public GameObject MidCircleBoundaryThree;
+    public GameObject MidCircleBoundaryFour;
+    public GameObject MidCircleBoundaryFive;
     public GameObject MidCircle;
 
 
@@ -67,7 +71,7 @@ public class GameManager : MonoBehaviour
     void SetSpawners()
     {
         // int TotalSpawners = Random.Range(0, Spawners.Length);
-        int TotalSpawners = 3;
+        int TotalSpawners = 5;
 
         // if(TotalSpawners > TotalMA)
         // {
@@ -76,26 +80,31 @@ public class GameManager : MonoBehaviour
         // }
         
         int SpawnerCount = 0;
-        for (int i = 0; i < Spawners.Length; i++)
+        for (int i = 0; i < TotalSpawners; i++)
         {
-            while (SpawnerCount < TotalSpawners)
+            while (SpawnerCount < i)
             {
                 int num = Random.Range(0, Spawners.Length);
-                int checker = 0;
-                foreach(int obj in spvalues){
-                    if(obj == num){
-                        checker = 1;
-                        print("HIT HERE");
-                         // Exit the loop once the value is found
-                    }
-                }
-                if (Spawners[num].activeInHierarchy == false && checker == 0)
+                if (Spawners[num].activeInHierarchy == false)
                 {
                     Spawners[num].SetActive(true);
-                    spvalues[SpawnerCount] = num;
                     SpawnerCount++;
-                    
                 }
+                // int checker = 0;
+                // foreach(int obj in spvalues){
+                //     if(obj == num){
+                //         checker = 1;
+                //         print("HIT HERE");
+                //          // Exit the loop once the value is found
+                //     }
+                // }
+                // if (Spawners[num].activeInHierarchy == false && checker == 0)
+                // {
+                //     Spawners[num].SetActive(true);
+                //     spvalues[SpawnerCount] = num;
+                //     SpawnerCount++;
+                    
+                // }
             }
         }
     }
@@ -108,15 +117,15 @@ public class GameManager : MonoBehaviour
         float sizeX;
         float sizeY;
 
-        TotalMirrors = 7;
+        TotalMirrors = 5;
         int MirrorCount = 0;
         foreach (GameObject mirror in Mirrors)
         {
             x = Random.Range(3.63f, -3.63f);
             y = Random.Range(3.95f, -3.95f);
             
-            sizeX = Random.Range(.25f, .8f);
-            sizeY = Random.Range(.25f, .8f);
+            sizeX = Random.Range(.37f, .75f);
+            sizeY = Random.Range(.37f, .75f);
             Vector3 newScale = new Vector3(sizeX, sizeY, 0);
             mirror.transform.localScale = newScale;
             mirror.transform.position = new Vector3(x, y, 0);
@@ -124,7 +133,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i <= TotalMirrors; i++)
         {
-            if (MirrorCount <= TotalMirrors)
+            while (MirrorCount <= i)
             {
                 int num = Random.Range(0, Mirrors.Length);
                 if (Mirrors[num].activeInHierarchy == false)
@@ -243,6 +252,11 @@ public class GameManager : MonoBehaviour
 
 
         MidCircleBoundary.SetActive(false);
+        MidCircleBoundaryTwo.SetActive(false);
+        MidCircleBoundaryThree.SetActive(false);
+        MidCircleBoundaryFour.SetActive(false);
+        MidCircleBoundaryFive.SetActive(false);
+
 
         startTimer = true;
         isGameStart = true;
