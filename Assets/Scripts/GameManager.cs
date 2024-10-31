@@ -88,6 +88,10 @@ public class GameManager : MonoBehaviour
                 if (Spawners[num].activeInHierarchy == false)
                 {
                     Spawners[num].SetActive(true);
+                    float randomAngle = Random.Range(-20f, 20f);
+
+        // Rotate the component around the Z-axis (for 2D rotations)
+            Spawners[num].transform.Rotate(Vector3.forward, randomAngle);
                     SpawnerCount++;
                 }
                 // int checker = 0;
@@ -120,9 +124,14 @@ public class GameManager : MonoBehaviour
         TotalMirrors = 5;
         int MirrorCount = 0;
         foreach (GameObject mirror in Mirrors)
-        {
-            x = Random.Range(3.63f, -3.63f);
-            y = Random.Range(3.95f, -3.95f);
+        {   
+            
+            x = Random.Range(2.8f, -2.8f);
+            y = Random.Range(2.8f, -2.8f);
+            while(Mathf.Abs(x) < 1f || Mathf.Abs(y)  < 1f){
+                x = Random.Range(3f, -3f);
+            y = Random.Range(3f, -3f);
+            }
             
             sizeX = Random.Range(.37f, .75f);
             sizeY = Random.Range(.37f, .75f);
@@ -138,6 +147,16 @@ public class GameManager : MonoBehaviour
                 int num = Random.Range(0, Mirrors.Length);
                 if (Mirrors[num].activeInHierarchy == false)
                 {
+                    int randomIndex = Random.Range(0, 8);
+
+                    // Define the possible angles in 45-degree increments
+                    int[] angles = { 0, 45, 90, 135, 180, 225, 270, 315 };
+
+                    // Select the random angle from the array
+                    int randomAngle = angles[randomIndex];
+
+                    // Rotate the component around the Z-axis
+                    Mirrors[num].transform.Rotate(Vector3.forward, randomAngle);
                     Mirrors[num].SetActive(true);
                     MirrorCount++;
                 }
@@ -233,9 +252,12 @@ public class GameManager : MonoBehaviour
         }
 
         foreach (GameObject mirror in Mirrors)
-        {
+        {   
+             
+    
             mirror.GetComponent<PolygonCollider2D>().isTrigger = false;
             mirror.GetComponent<Drag>().enabled = false;
+
         }
 
         foreach (GameObject absorber in Absorbers)
