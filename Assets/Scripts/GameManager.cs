@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using PlayFab;
+using PlayFab.ClientModels;
 
 
 public class GameManager : MonoBehaviour
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
     public GameObject MidCircleBoundaryFive;
     public GameObject MidCircle;
 
+    
+
 
     public float targetTime;
     [HideInInspector] public bool startTimer = false;
@@ -47,6 +51,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        PlayFabSettings.staticSettings.TitleId = "B1634";
+    PlayFabClientAPI.LoginWithCustomID(new LoginWithCustomIDRequest()
+    {
+        CustomId = "TomtheBomb",
+        CreateAccount = true
+    }, OnLoginSuccess, OnLoginFailure);
+
         Instance = this;
         //TurnOnLevel();
 
