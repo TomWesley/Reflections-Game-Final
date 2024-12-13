@@ -51,12 +51,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        PlayFabSettings.staticSettings.TitleId = "B1634";
-    PlayFabClientAPI.LoginWithCustomID(new LoginWithCustomIDRequest()
-    {
-        CustomId = "TomtheBomb",
-        CreateAccount = true
-    }, OnLoginSuccess, OnLoginFailure);
+        //PLAYFAB CODE
+    //     PlayFabSettings.staticSettings.TitleId = "B1634";
+    // PlayFabClientAPI.LoginWithCustomID(new LoginWithCustomIDRequest()
+    // {
+    //     CustomId = "TomtheBomb",
+    //     CreateAccount = true
+    // }, OnLoginSuccess, OnLoginFailure);
 
         Instance = this;
         //TurnOnLevel();
