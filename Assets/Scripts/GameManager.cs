@@ -233,7 +233,7 @@ public class GameManager : MonoBehaviour
         if (startTimer)
         {
             targetTime += Time.deltaTime;
-            TimerTxt.text = ((int)targetTime).ToString();
+            TimerTxt.text = ((float)targetTime).ToString("#.000");
             finalScore.text = TimerTxt.text;
             if (targetTime >=100)
             {
