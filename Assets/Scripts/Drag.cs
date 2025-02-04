@@ -38,7 +38,7 @@ public class Drag : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Static;
 
         // Snap to grid if close enough
-        float gridSize = .5f;
+        // float gridSize = .5f;
         float newX = transform.position.x;
         float newY = transform.position.y; 
         // float newX = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;

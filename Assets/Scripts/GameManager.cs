@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public Transform[] RandomPos;
     public Sprite[] SimpleMirrorSprites;
 
-
+    private LeaderboardManager leaderboardManager;
 
     public GameObject MidCircleBoundary;
     public GameObject MidCircleBoundaryTwo;
@@ -50,14 +50,9 @@ public class GameManager : MonoBehaviour
     int[] spvalues= new int[10];
 
     private void Start()
-    {
-        //PLAYFAB CODE
-    //     PlayFabSettings.staticSettings.TitleId = "B1634";
-    // PlayFabClientAPI.LoginWithCustomID(new LoginWithCustomIDRequest()
-    // {
-    //     CustomId = "TomtheBomb",
-    //     CreateAccount = true
-    // }, OnLoginSuccess, OnLoginFailure);
+    { 
+
+        leaderboardManager = GetComponent<LeaderboardManager>();
 
         Instance = this;
         //TurnOnLevel();
@@ -84,6 +79,12 @@ public class GameManager : MonoBehaviour
     {
         // int TotalSpawners = Random.Range(0, Spawners.Length);
         int TotalSpawners = 5;
+        // if (!PlayFabCentralLogin.IsLoggedIn)
+        // {
+        //     Debug.LogError("Cannot submit score: Not logged in to PlayFab.");
+            
+        // }
+        // leaderboardManager.SubmitScore(10);
 
         // if(TotalSpawners > TotalMA)
         // {
